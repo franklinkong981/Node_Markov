@@ -1,0 +1,12 @@
+{
+  "name": "node_markov",
+  "version": "1.0.0",
+  "description": "A Markov machine for generating realistic machine-made text based on an original source text. Written using Node.js",
+  "main": "makeText.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
