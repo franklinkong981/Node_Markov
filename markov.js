@@ -43,7 +43,10 @@ class MarkovMachine {
     for (let i = 0; i < numWords; i++) {
       if (i == 0) {
         const keys = Object.keys(this.chains);
-        const firstWord = keys[Math.floor(Math.random() * keys.length)];
+        let firstWord = keys[Math.floor(Math.random() * keys.length)];
+        while (!(firstWord[0] == firstWord[0].toUpperCase())) {
+          firstWord = keys[Math.floor(Math.random() * keys.length)];
+        }
         listOfWords.push(firstWord);
       }
       else {
@@ -51,10 +54,13 @@ class MarkovMachine {
         const possibleNextWords = this.chains[previousWord];
         const selectedNextWord = possibleNextWords[Math.floor(Math.random() * possibleNextWords.length)];
         //if the selected next word is null, we are done.
-        if (!selectedNextWord) {
+        if (!selectedNextWord == '.') {
           break;
         }
         listOfWords.push(selectedNextWord);
+        if (selectedNextWord.charAt(selectedNextWord.length - 1) == '.') {
+          break;
+        }
       }
     }
     return listOfWords.join(" ");
